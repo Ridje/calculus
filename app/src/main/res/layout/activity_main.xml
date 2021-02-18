@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="bottom|center"
     android:orientation="horizontal"
+    android:background="@drawable/activity_background"
     tools:context=".MainActivity">
 
     <TableRow>
