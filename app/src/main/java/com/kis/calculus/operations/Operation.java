@@ -1,6 +1,8 @@
 package com.kis.calculus.operations;
 
-public interface Operation {
+import android.os.Parcelable;
+
+public interface Operation{
     Double execute(Double a, Double b);
     default boolean validateOperation(Double a, Double b) {
         return true;

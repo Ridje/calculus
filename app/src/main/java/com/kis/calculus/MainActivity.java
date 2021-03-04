@@ -1,8 +1,11 @@
 package com.kis.calculus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private CalculusState calculusState;
     private HashSet<String> operandParts;
     private HashSet<String> operations;
+    private static final String CALCULUS_STATE_NAMESPACE = "CALCULUS_STATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculusState = new CalculusState(resultView);
         initializeKeyHashes();
         setListenerForButtons();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(CALCULUS_STATE_NAMESPACE, calculusState);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        calculusState = savedInstanceState.getParcelable(CALCULUS_STATE_NAMESPACE);
+        calculusState.setDisplay(resultView);
+        super.onRestoreInstanceState(savedInstanceState);
+
     }
 
     private void initializeKeyHashes() {
@@ -50,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             add(getResources().getString(R.string.minus_symbol));
         }};
     }
+
 
     private void setListenerForButtons() {
         ViewGroup rootView = findViewById(android.R.id.content);

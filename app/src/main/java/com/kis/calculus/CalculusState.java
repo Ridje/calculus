@@ -1,4 +1,7 @@
 package com.kis.calculus;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.view.View;
 import android.widget.TextView;
 
 import com.kis.calculus.operations.Addition;
@@ -11,7 +14,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.HashMap;
 
-public class CalculusState {
+public class CalculusState implements Parcelable {
     private Operation mCurrentOperation;
     private String mFirstOperand;
     private String mSecondOperand;
@@ -22,10 +25,44 @@ public class CalculusState {
     private TextView mDisplay;
     private DecimalFormat resultFormat = new DecimalFormat("#.##############################");;
 
+    public static final Creator<CalculusState> CREATOR = new Creator<CalculusState>() {
+        @Override
+        public CalculusState createFromParcel(Parcel in) {
+            return new CalculusState(in);
+        }
+
+        @Override
+        public CalculusState[] newArray(int size) {
+            return new CalculusState[size];
+        }
+    };
+
     public CalculusState(TextView display) {
         mFirstOperand = "";
         mSecondOperand = "";
         mDisplay = display;
+        refreshDisplay();
+    }
+
+    protected CalculusState(Parcel in) {
+        mFirstOperand = in.readString();
+        mSecondOperand = in.readString();
+        mResult = in.readString();
+        mWorkWithResult = in.readByte() != 0;
+        mCurrentElement = in.readInt();
+        if (mAvailableOperaions == null) {
+            mAvailableOperaions = new HashMap<String, Operation>() {{
+                put("÷", new Divison());
+                put("+", new Addition());
+                put("×", new Multiplication());
+                put("-", new Subtraction());
+            }};
+        }
+        mCurrentOperation = mAvailableOperaions.get(in.readString());
+    }
+
+    public void setDisplay(TextView newView) {
+        mDisplay = newView;
         refreshDisplay();
     }
 
@@ -201,6 +238,21 @@ public class CalculusState {
         }
 
         refreshDisplay();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mFirstOperand);
+        dest.writeString(mSecondOperand);
+        dest.writeString(mResult);
+        dest.writeByte((byte) (mWorkWithResult ? 1 : 0));
+        dest.writeInt(mCurrentElement);
+        dest.writeString(mCurrentOperation.toString());
     }
 }
 
