@@ -16,38 +16,38 @@ import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView resultView;
-    private CalculusState calculusState;
-    private HashSet<String> operandParts;
-    private HashSet<String> operations;
+    private TextView mResultView;
+    private CalculusState mCalculusState;
+    private HashSet<String> mOperandParts;
+    private HashSet<String> mOperations;
     private static final String CALCULUS_STATE_NAMESPACE = "CALCULUS_STATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        resultView = findViewById(R.id.calcus_state);
-        calculusState = new CalculusState(resultView);
+        mResultView = findViewById(R.id.calcus_state);
+        mCalculusState = new CalculusState(mResultView);
         initializeKeyHashes();
         setListenerForButtons();
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putParcelable(CALCULUS_STATE_NAMESPACE, calculusState);
+        outState.putParcelable(CALCULUS_STATE_NAMESPACE, mCalculusState);
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        calculusState = savedInstanceState.getParcelable(CALCULUS_STATE_NAMESPACE);
-        calculusState.setDisplay(resultView);
+        mCalculusState = savedInstanceState.getParcelable(CALCULUS_STATE_NAMESPACE);
+        mCalculusState.setDisplay(mResultView);
         super.onRestoreInstanceState(savedInstanceState);
 
     }
 
     private void initializeKeyHashes() {
-        operandParts = new HashSet<String>() {{
+        mOperandParts = new HashSet<String>() {{
             add(getResources().getString(R.string._0));
             add(getResources().getString(R.string._1));
             add(getResources().getString(R.string._2));
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             add(getResources().getString(R.string.dot_symbol));
         }};
 
-        operations = new HashSet<String>() {{
+        mOperations = new HashSet<String>() {{
             add(getResources().getString(R.string.divide_symbol));
             add(getResources().getString(R.string.multiply_symbol));
             add(getResources().getString(R.string.plus_symbol));
@@ -102,20 +102,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             throw new RuntimeException("Listener on click was set up to wrong type view. It should be Button.");
         }
         String pressedValue = ((Button) v).getText().toString();
-        if (operandParts.contains(pressedValue)) {
-            calculusState.appendDigit(pressedValue);
+        if (mOperandParts.contains(pressedValue)) {
+            mCalculusState.appendDigit(pressedValue);
         } else if (pressedValue.equals(getResources().getString(R.string.negative_positive_symbol))) {
-            calculusState.changePosNeg();
-        } else if (operations.contains(pressedValue)) {
-            calculusState.determineOperation(pressedValue);
+            mCalculusState.changePosNeg();
+        } else if (mOperations.contains(pressedValue)) {
+            mCalculusState.determineOperation(pressedValue);
         } else if (pressedValue.equals(getResources().getString(R.string.equal_symbol))) {
-            calculusState.execute();
+            mCalculusState.execute();
         } else if (pressedValue.equals(getResources().getString(R.string.clear_expression))) {
-            calculusState.clearStatemenet();
+            mCalculusState.clearStatemenet();
         } else if (pressedValue.equals(getResources().getString(R.string.clear_digit))) {
-            calculusState.clearLastDigit();
+            mCalculusState.clearLastDigit();
         } else if (pressedValue.equals(getResources().getString(R.string.clear_number))) {
-            calculusState.clearCurrentOperand();
+            mCalculusState.clearCurrentOperand();
         } else {
             throw new UnsupportedOperationException();
         }

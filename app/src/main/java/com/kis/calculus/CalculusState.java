@@ -23,7 +23,7 @@ public class CalculusState implements Parcelable {
     private int mCurrentElement;
     private HashMap<String, Operation> mAvailableOperaions;
     private TextView mDisplay;
-    private DecimalFormat resultFormat = new DecimalFormat("#.##############################");;
+    private static final DecimalFormat RESULT_FORMAT = new DecimalFormat("#.##############################");;
 
     public static final Creator<CalculusState> CREATOR = new Creator<CalculusState>() {
         @Override
@@ -96,7 +96,7 @@ public class CalculusState implements Parcelable {
             mResult = mCurrentOperation.getResultForNonValidatedOperation();
         } else {
             Double result = mCurrentOperation.execute(aOperand, bOperand);
-            mResult = resultFormat.format(result);
+            mResult = RESULT_FORMAT.format(result);
         }
         refreshDisplay();
         resetVariables();
