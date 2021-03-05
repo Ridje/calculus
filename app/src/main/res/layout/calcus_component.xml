@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/calcus_state"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,92 +23,92 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <TableRow android:layout_weight="1">
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/clear_number" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/clear_expression" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/clear_digit" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/divide_symbol" />
         </TableRow>
         <TableRow android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_7" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_8" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_9" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/multiply_symbol" />
         </TableRow>
         <TableRow android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_4" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_5" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_6" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/minus_symbol" />
         </TableRow>
         <TableRow android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_1" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_2" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_3" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/OperationButton"
                 android:text="@string/plus_symbol" />
         </TableRow>
         <TableRow android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/negative_positive_symbol" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/_0" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/DigitButton"
                 android:text="@string/dot_symbol" />
 
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 style="@style/MainButton"
                 android:text="@string/equal_symbol" />
         </TableRow>
