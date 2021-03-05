@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CalculusDisplay" parent="Theme.Calculus">
+    <style name="CalculusDisplayBase" parent="Theme.Calculus">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
@@ -8,17 +8,24 @@
         <item name="android:gravity">bottom|end</item>
         <item name="android:textStyle">bold</item>
     </style>
-    <style name="CalculusKeyButton" parent="Theme.Calculus">
+    <style name="CalculusDisplay" parent="CalculusDisplayBase">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CalculusKeyButtonBase" parent="Theme.Calculus">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:insetTop">@dimen/insetTop</item>
         <item name="android:insetBottom">@dimen/insetBottom</item>
-        <item name="android:textColor">@color/black</item>
         <item name="cornerRadius">@dimen/cornerRadius</item>
         <item name="android:textSize">@dimen/textSize</item>
-        <item name="strokeColor">@color/stroke_color</item>
         <item name="strokeWidth">@dimen/strokeWidth</item>
+    </style>
+
+    <style name="CalculusKeyButton" parent="CalculusKeyButtonBase">
+        <item name="android:textColor">@color/black</item>
+        <item name="strokeColor">@color/stroke_color</item>
     </style>
     <style name="DigitButton" parent="CalculusKeyButton">
         <item name="android:backgroundTint">@color/white</item>
