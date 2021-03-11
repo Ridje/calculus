@@ -20,4 +20,5 @@
     <string name="dot_symbol">.</string>
     <string name="_0">0</string>
     <string name="equal_symbol">=</string>
+    <string name="_null">NULL</string>
 </resources>
