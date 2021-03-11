@@ -142,34 +142,29 @@ public class CalculusState implements Parcelable {
 
     public void appendDigit(String digit) {
         if (mCurrentElement == 0) {
-
             if (mWorkWithResult) {
                 mFirstOperand = "";
                 mWorkWithResult = false;
             }
-
-            if (mFirstOperand.equals("")) {
-                if (digit.equals(".")){
-                    mFirstOperand = mFirstOperand.concat(digit);
-                } else {
-                    mFirstOperand = digit;
-                }
-            } else {
-                mFirstOperand = mFirstOperand.concat(digit);
-            }
+            mFirstOperand = processAppendToDigit(mFirstOperand, digit);
         }
         else if (mCurrentElement == 1) {
-            if (mSecondOperand.equals("")) {
-                if (digit.equals(".")){
-                    mSecondOperand = mSecondOperand.concat(digit);
-                } else {
-                    mSecondOperand = digit;
-                }
-            } else {
-                mSecondOperand = mSecondOperand.concat(digit);
-            }
+            mSecondOperand = processAppendToDigit(mSecondOperand, digit);
         }
         refreshDisplay();
+    }
+
+    private String processAppendToDigit(String valueOfNumber, String digit) {
+        if (valueOfNumber.equals("") || valueOfNumber.equals("0")) {
+            if (digit.equals(".")){
+                return "0".concat(digit);
+            } else {
+                return digit;
+            }
+        }
+        else {
+            return valueOfNumber.concat(digit);
+        }
     }
 
     public void changePosNeg() {
