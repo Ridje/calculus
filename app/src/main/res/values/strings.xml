@@ -21,4 +21,6 @@
     <string name="_0">0</string>
     <string name="equal_symbol">=</string>
     <string name="_null">NULL</string>
+    <string name="settings">Settings</string>
+    <string name="change_theme">Dark theme</string>
 </resources>
