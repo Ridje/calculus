@@ -9,7 +9,7 @@
         <item name="android:textStyle">bold</item>
     </style>
     <style name="CalculusDisplay" parent="CalculusDisplayBase">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/stroke_color</item>
     </style>
 
     <style name="CalculusKeyButtonBase" parent="Theme.Calculus">

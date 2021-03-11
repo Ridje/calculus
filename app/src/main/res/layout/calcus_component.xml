@@ -9,8 +9,8 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/calcus_state"
-        android:text="@string/_null"
-        style="@style/CalculusDisplay"/>
+        style="@style/CalculusDisplay"
+        android:text="@string/_null" />
 
     <TableLayout
         android:layout_width="match_parent"
