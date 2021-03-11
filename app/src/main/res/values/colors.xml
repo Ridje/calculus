@@ -10,6 +10,11 @@
     <color name="grey">#E4E4E4</color>
     <color name="ripple_grey">#FFB1B1B1</color>
     <color name="ripple_white">#FFD5D5D5</color>
+
+    <color name="operation_button_color">@color/grey</color>
+    <color name="button_text_color">@color/black</color>
     <color name="stroke_color">#74000000</color>
     <color name="main_button_color">#C2E3E3</color>
+    <color name="digit_button_color">@color/white</color>
+
 </resources>

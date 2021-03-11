@@ -24,15 +24,15 @@
     </style>
 
     <style name="CalculusKeyButton" parent="CalculusKeyButtonBase">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/button_text_color</item>
         <item name="strokeColor">@color/stroke_color</item>
     </style>
     <style name="DigitButton" parent="CalculusKeyButton">
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/digit_button_color</item>
         <item name="rippleColor">@color/ripple_white</item>
     </style>
     <style name="OperationButton" parent="CalculusKeyButton">
-        <item name="android:backgroundTint">@color/grey</item>
+        <item name="android:backgroundTint">@color/operation_button_color</item>
         <item name="rippleColor">@color/ripple_grey</item>
     </style>
     <style name="MainButton" parent="CalculusKeyButton">

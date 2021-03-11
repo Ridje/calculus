@@ -162,7 +162,9 @@ public class CalculusState implements Parcelable {
                 return digit;
             }
         }
-        else {
+        else if (digit.equals(".") && valueOfNumber.contains(".")) {
+            return valueOfNumber;
+        } else {
             return valueOfNumber.concat(digit);
         }
     }
