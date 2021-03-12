@@ -11,12 +11,24 @@
         android:theme="@style/Theme.Calculus">
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/settings"></activity>
+            android:label="@string/settings" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.kis.calculus.START_CALC"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity_TestIntent"
+            android:label="@string/test_starter">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
     </application>
 

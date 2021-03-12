@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">calculus</string>
+    <string name="app_name">Calculus</string>
     <string name="clear_number">C</string>
     <string name="clear_expression">CE</string>
     <string name="clear_digit">⌫</string>
@@ -25,4 +25,5 @@
     <string name="change_theme">Dark theme</string>
     <string name="use_system_day_night_theme">Use system</string>
     <string name="settings_theme">Dark theme</string>
+    <string name="test_starter">Calc test starter</string>
 </resources>
