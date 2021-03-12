@@ -38,4 +38,9 @@
     <style name="MainButton" parent="CalculusKeyButton">
         <item name="android:backgroundTint">@color/main_button_color</item>
     </style>
+
+    <style name="SettingsGroupTextView" parent="Theme.Calculus">
+        <item name="android:textSize">@dimen/textViewGroupTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

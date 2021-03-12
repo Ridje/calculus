@@ -6,4 +6,10 @@
     <dimen name="cornerRadius">0sp</dimen>
     <dimen name="strokeWidth">1dp</dimen>
     <dimen name="textViewTextSize">50sp</dimen>
+    <dimen name="textViewGroupTextSize">20sp</dimen>
+    <dimen name="groupSettingsMargin">20dp</dimen>
+    <dimen name="groupSettingsMarginTop">2dp</dimen>
+    <dimen name="elementSettingsMargin">25dp</dimen>
+    <dimen name="elementSettingsMarginTop">5dp</dimen>
+    <dimen name="elementSettingsHeight">35dp</dimen>
 </resources>

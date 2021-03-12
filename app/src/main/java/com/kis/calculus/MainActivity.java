@@ -2,8 +2,10 @@ package com.kis.calculus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,7 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,21 +34,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mResultView = findViewById(R.id.calcus_state);
         mCalculusState = new CalculusState(mResultView);
+        ThemeUtils.setDayNightModeFromSettings(getSharedPreferences(ThemeUtils.SHARED_PREFERENCES_NAMESPACE, MODE_PRIVATE));
         initializeKeyHashes();
         setListenerForButtons();
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putParcelable(CALCULUS_STATE_NAMESPACE, mCalculusState);
         super.onSaveInstanceState(outState);
+        outState.putParcelable(CALCULUS_STATE_NAMESPACE, mCalculusState);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
         mCalculusState = savedInstanceState.getParcelable(CALCULUS_STATE_NAMESPACE);
         mCalculusState.setDisplay(mResultView);
-        super.onRestoreInstanceState(savedInstanceState);
 
     }
 

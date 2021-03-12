@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/switch_theme"
+    <TextView
+        android:id="@+id/label_day_night_theme"
+        style="@style/SettingsGroupTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/change_theme"/>
+        android:layout_marginStart="@dimen/groupSettingsMargin"
+        android:layout_marginTop="@dimen/groupSettingsMarginTop"
+        android:layout_marginEnd="@dimen/groupSettingsMargin"
+        android:text="@string/settings_theme" />
+
+    <CheckBox
+        android:id="@+id/checkBox_system_theme"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/elementSettingsHeight"
+        android:layout_marginStart="@dimen/elementSettingsMargin"
+        android:layout_marginTop="@dimen/elementSettingsMarginTop"
+        android:layout_marginEnd="@dimen/elementSettingsMargin"
+        android:layoutDirection="rtl"
+        android:text="@string/use_system_day_night_theme"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/textSize" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_theme"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/elementSettingsHeight"
+        android:layout_marginStart="@dimen/elementSettingsMargin"
+        android:layout_marginEnd="@dimen/elementSettingsMargin"
+        android:text="@string/change_theme"
+        android:textSize="@dimen/textSize" />
+
 </LinearLayout>
