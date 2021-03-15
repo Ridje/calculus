@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize">20sp</dimen>
+    <dimen name="insetTop">0sp</dimen>
+    <dimen name="insetBottom">0sp</dimen>
+    <dimen name="cornerRadius">0sp</dimen>
+    <dimen name="strokeWidth">1dp</dimen>
+    <dimen name="textViewTextSize">30sp</dimen>
+</resources>

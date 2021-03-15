@@ -252,7 +252,7 @@ public class CalculusState implements Parcelable {
         dest.writeString(mResult);
         dest.writeByte((byte) (mWorkWithResult ? 1 : 0));
         dest.writeInt(mCurrentElement);
-        dest.writeString(mCurrentOperation.toString());
+        dest.writeString(mCurrentOperation == null ? "" : mCurrentOperation.toString());
     }
 }
 
